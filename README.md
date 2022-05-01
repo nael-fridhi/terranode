@@ -1,6 +1,7 @@
-# Set up a Terra nodes under a load balancer provisioned using terraform
+# Setup Terranodes on AWS using terraform
+![dev status](https://img.shields.io/badge/dev-in%20progress-important)
+![license](https://img.shields.io/badge/license-MIT-green)
 
-[https://img.shields.io/badge/dev-in%20progress-important](https://img.shields.io/badge/dev-in%20progress-important)
 This project contains a full terranode provisioned and configured using terraform.
 
 ------------------------
@@ -33,6 +34,8 @@ This project contains a full terranode provisioned and configured using terrafor
 You can use gitlab ci/cd in order to deploy the project or also github workflows.
 
 
-## 5. Needs To be Done 
+## 5. To Do
 
-- The 
+- Challenge the use of ALB instead of NLB
+- Evalute the use of an ansible playbook to configure the node instead of bash script
+- Finish the ci/cd pipeline of provisioning
