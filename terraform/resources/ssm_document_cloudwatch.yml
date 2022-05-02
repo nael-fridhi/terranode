@@ -1,0 +1,49 @@
+description: >-
+  *Replace this default text with instructions or other information about your
+  document.*
+schemaVersion: '0.3'
+mainSteps:
+  - name: install_cloudwatch_agent
+    action: 'aws:runCommand'
+    inputs:
+      DocumentName: AWS-ConfigureAWSPackage
+      Targets:
+        - Key: InstanceIds
+          Values:
+            - ${instance_id_0}
+            - ${instance_id_1}
+      Parameters:
+        action:
+          - Install
+        installationType:
+          - Uninstall and reinstall
+        name:
+          - AmazonCloudWatchAgent
+      MaxConcurrency: '50'
+      MaxErrors: '0'
+    description: Install CloudWatch Agent
+    timeoutSeconds: 600
+  - name: configure_cloudwatch_agent
+    action: 'aws:runCommand'
+    inputs:
+      DocumentName: AmazonCloudWatch-ManageAgent
+      Targets:
+        - Key: InstanceIds
+          Values:
+            - ${instance_id_0}
+            - ${instance_id_1}
+      Parameters:
+        action:
+          - configure
+        mode:
+          - ec2
+        optionalConfigurationSource:
+          - ssm
+        optionalConfigurationLocation:
+          - ${parameter_store_name}
+        optionalRestart:
+          - 'yes'
+      MaxConcurrency: '50'
+      MaxErrors: '0'
+    description: Configure Cloudwatch Agent
+    timeoutSeconds: 600
