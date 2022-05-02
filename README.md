@@ -21,6 +21,10 @@ This project contains a full terra node provisioned and configured using terrafo
 
 ## 3. Architecture 
 
+This is the design of the solution needs.
+
+![terranode design](docs/img/terranode_design_beta.png)
+
 ## 4. Installation 
 
 ### Manually 
@@ -40,4 +44,5 @@ You can use gitlab ci/cd in order to deploy the project or also github workflows
 - Challenge the use of ALB instead of NLB
 - Evalute the use of an ansible playbook to configure the node instead of bash script
 - Finish the ci/cd pipeline of provisioning
-- Alerting using Cloudwatch and SNS needs to be added
+- Alerting using Cloudwatch and SNS needs to be completed
+- sync script health check
